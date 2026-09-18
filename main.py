@@ -1,4 +1,7 @@
-""""""
+"""
+En MAIN se encuentra la aplicación principal y se encarga de iniciar el servidor web con FastAPI, 
+preparar la base de datos al arrancar y definir las rutas (endpoints) HTTP para crear, consultar, actualizar y eliminar productos del catálogo.
+"""
 
 from fastapi import FastAPI, HTTPException, status
 from app.database import init_db
@@ -57,6 +60,7 @@ def actualizar_elemento(item_id: int, item: ItemCreate):
 
 """Eliminar un elemento del catálogo de forma definitiva."""
 @app.delete("/items/{item_id}", status_code=status.HTTP_204_NO_CONTENT)
+
 def eliminar_elemento(item_id: int):
     eliminado = deleteItem(item_id)
     if not eliminado:
