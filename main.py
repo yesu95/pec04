@@ -1,32 +1,39 @@
+""""""
+
 from fastapi import FastAPI, HTTPException, status
 from app.database import init_db
-from app.models import ItemCreate, ItemResponse
 from app.logic import *
+from app.models import *
 
-# Se crea una instancia de FastAPI para la app
+# Se crea la instancia de FastAPI para la APP
+
 app = FastAPI(
-    title="Sistema de Catálogo Digital",
-    description="API para gestionar un catálogo digital.",
+    title="Sistema de catálogos de productos",
+    description="API para gestionar un catálogo de productos utilizando FastAPI y SQLite.",
 )
 
-# Iniciar la base de datos al arrncar el server
+# Iniciar la base de datos al arrancacr el server
 @app.on_event("startup")
-def startup_db():
+def startup_event():
     init_db()
 
-# ENDPOINTS 
+"""----------ENDPOINTS DE LA API----------"""
+
 """Crear un nuevo elemento en el catálogo."""
-@app.post("/items", response_model=ItemResponse, status_code=status.HTTP_201_CREATED)
-def crear_elemento(item: ItemCreate):
+@app.post("/items/", response_model=ItemResponse, status_code=status.HTTP_201_CREATED)
+
+def create_item(item: ItemCreate):
     return createItem(item)
 
-"""Obtener la lista completa de elementos guardados."""
-@app.get("/items", response_model=list[ItemResponse])
-def listar_elementos():
-    return getItem()
+"""Obtener todos los elementos del catálogo."""
+@app.get("/items/", response_model=list[ItemResponse])
 
-"""Buscar un elemento específico por su ID."""
+def read_items():
+    return getItems()
+
+"""Obtener un elemento por su ID."""
 @app.get("/items/{item_id}", response_model=ItemResponse)
+
 def obtener_elemento(item_id: int):
     elemento = getItemById(item_id)
     if not elemento:
@@ -38,6 +45,7 @@ def obtener_elemento(item_id: int):
 
 """Modificar los datos de un elemento existente por su ID."""
 @app.put("/items/{item_id}", response_model=ItemResponse)
+
 def actualizar_elemento(item_id: int, item: ItemCreate):
     elemento_actualizado = updateItems(item_id, item)
     if not elemento_actualizado:
