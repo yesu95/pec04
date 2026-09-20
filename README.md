@@ -6,8 +6,10 @@ Aplicación de Python para la gestión de tareas (**CRUD**).
 
 https://github.com/yesu95/pec04
 
+## DEMO 
+
 <p align="center">
-  <img src="https://s5.ezgif.com/tmp/ezgif-5d58b2722b9e4927.gif" width="800" alt="Demo">
+  <img src="https://s5.ezgif.com/tmp/ezgif-5d58b2722b9e4927.gif" width="920" alt="Demo">
 </p>
 
 ## Estructura del Proyecto
