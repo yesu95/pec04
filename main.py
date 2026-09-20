@@ -5,7 +5,7 @@ preparar la base de datos al arrancar y definir las rutas (endpoints) HTTP para 
 
 from fastapi import FastAPI, HTTPException, status
 from app.database import init_db
-from app.logic import createItem, getItem, getItemById, updateItems, deleteItem
+from app.logic import *
 from app.models import ItemCreate, ItemResponse
 
 # Se crea la instancia de FastAPI para la APP
