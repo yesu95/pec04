@@ -9,7 +9,7 @@ https://github.com/yesu95/pec04
 ## DEMO 
 
 <p align="center">
-  <img src="https://i.ibb.co/Gf5hbqhW/example.gif" width="100%" alt="Demo">
+  <img src="example.mp4" width="100%" alt="Demo">
 </p>
 
 ## Estructura del Proyecto
