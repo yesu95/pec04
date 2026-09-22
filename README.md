@@ -2,6 +2,10 @@
 
 Aplicación de Python para la gestión de tareas (**CRUD**).
 
+## INICIAR PROYECTO
+
+uvicorn main:app --reload
+
 ## LINK TO GITHUB 
 
 https://github.com/yesu95/pec04
